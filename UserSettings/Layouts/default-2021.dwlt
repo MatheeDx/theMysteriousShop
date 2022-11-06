@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 19
+  controlID: 66
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -94,8 +94,8 @@ MonoBehaviour:
     y: 0
     width: 363
     height: 652
-  m_MinSize: {x: 201, y: 221}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 15}
   m_Panes:
   - {fileID: 15}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 86
+  controlID: 67
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 87
+  controlID: 68
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -401,22 +401,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Materials
+    - Assets/Materials/material zdanie
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 57
   m_LastFolders:
-  - Assets/Materials
+  - Assets/Materials/material zdanie
   m_LastFoldersGridSize: 57
-  m_LastProjectPath: C:\Users\1\OneDrive\Documents\GitHub\theMysteriousShop
+  m_LastProjectPath: C:\Users\User\Documents\GitHub\theMysteriousShop
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: f05a0000
-    m_LastClickedID: 23280
-    m_ExpandedIDs: 00000000ee5a0000f05a0000f25a0000f45a000000ca9a3b
+    m_SelectedIDs: 16650000
+    m_LastClickedID: 25878
+    m_ExpandedIDs: 000000002e5b0000345b00005c5b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -444,7 +444,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000ee5a0000f05a0000f25a0000f45a0000
+    m_ExpandedIDs: 000000002e5b0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -488,7 +488,7 @@ MonoBehaviour:
       m_IsRenaming: 0
       m_OriginalEventType: 11
       m_IsRenamingFilename: 1
-      m_ClientGUIView: {fileID: 11}
+      m_ClientGUIView: {fileID: 5}
     m_CreateAssetUtility:
       m_EndAction: {fileID: 0}
       m_InstanceID: 0
@@ -572,23 +572,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: d8590000
-      m_LastClickedID: 23000
-      m_ExpandedIDs: 36fbffffee590000645a0000
+      m_SelectedIDs: b23affff
+      m_LastClickedID: 0
+      m_ExpandedIDs: 9450ffffc051ffffce91ffffb692ffffda93ffff94afffffa0b1ffff62bbffff66bcffff3ac7ffff46c9ffff30d4ffff3cd6fffff6e2ffff32e3ffff1af6ffff38fbffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Terrain
-        m_OriginalName: Terrain
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 23000
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 4}
       m_SearchString: 
@@ -823,9 +823,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 26.558111, y: -2.9031668, z: 36.399902}
+    m_Target: {x: 51.785694, y: 8.196427, z: 24.17974}
     speed: 2
-    m_Value: {x: 26.558111, y: -2.9031668, z: 36.399902}
+    m_Value: {x: 51.785694, y: 8.196427, z: 24.17974}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -872,13 +872,13 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.12023628, y: -0.7963794, z: 0.16849464, w: 0.56829476}
+    m_Target: {x: 0.00021559176, y: 0.99959296, z: -0.00780625, w: 0.027926164}
     speed: 2
-    m_Value: {x: 0.1202347, y: -0.79636896, z: 0.16849244, w: 0.5682873}
+    m_Value: {x: 0.00009985205, y: 0.9995162, z: -0.0033076885, w: 0.030925157}
   m_Size:
-    m_Target: 10.38163
+    m_Target: 47.43416
     speed: 2
-    m_Value: 10.38163
+    m_Value: 49.669277
   m_Ortho:
     m_Target: 0
     speed: 2
