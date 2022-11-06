@@ -2,24 +2,27 @@ using UnityEngine;
 
 public class Player_Move : MonoBehaviour
 {
-    public Rigidbody Player;
+    Rigidbody Player;
     public Camera cam;
     public float speed;
     public float runSpeed;
     public float rotateSpeed;
-    public float animSpeed; 
+    public float animSpeed;
+    [SerializeField] Vector3 camPos;
 
     Animator anim;
     float animTimer;
 
     float keyHor;
     float keyVert;
-    Vector3 dir;
+    public static Vector3 dir;
 
     
     void Start()
     {
-        anim = Player.GetComponent<Animator>();
+        Player = GetComponent<Rigidbody>();
+        anim = GetComponent<Animator>();
+        
     }
 
     void FixedUpdate()
@@ -44,7 +47,7 @@ public class Player_Move : MonoBehaviour
         } else
             animSwitch(0.0f);
 
-        transform.position = Player.position;
+        cam.transform.position = Player.position + camPos;
     }
 
     void animSwitch(float n)
