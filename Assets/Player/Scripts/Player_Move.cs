@@ -43,7 +43,7 @@ public class Player_Move : MonoBehaviour
         Player.transform.Rotate(X * Vector3.up * rotateSpeed);
         if (dir.magnitude >= 0.1)
         {
-            if (Input.GetAxis("Run") != 0)
+            if (Input.GetButton("Run"))
             {
                 Player.velocity = dir.z * transform.forward * runSpeed + dir.x * transform.right * runSpeed * 0.5f;
                 animTimer = Mathf.Lerp(animTimer, 2.0f, Time.deltaTime * animSpeed);
@@ -53,23 +53,26 @@ public class Player_Move : MonoBehaviour
                 Player.velocity = dir.z * transform.forward * speed + dir.x * transform.right * runSpeed * 0.5f;
                 animTimer = Mathf.Lerp(animTimer, 1.0f, Time.deltaTime * animSpeed);
             }
-            //Player.rotation = Quaternion.Lerp(Player.rotation, Quaternion.LookRotation(dir), Time.deltaTime * rotateSpeed);
 
         } else
             animTimer = Mathf.Lerp(animTimer, 0, Time.deltaTime * animSpeed);
         
         anim.SetFloat("walk", animTimer);
 
-        //cam.position = Vector3.Lerp(cam.transform.position, Player.position - transform.forward * 8 + camPos, camSpeed * Time.deltaTime);
-        //cam.rotation = Quaternion.LookRotation(transform.forward + new Vector3(0, -0.2f, 0));
         cam.position = Vector3.Lerp(cam.position, Player.position + camPos, camSpeed * Time.deltaTime);
 
         
         Yangle -= Y;
         if (Yangle < -4)
+        {
             Yangle = -4;
+            Y = 0;
+        }
         else if (Yangle > 6)
+        {
+            Y = 0;
             Yangle = 6;
+        }
         
         
         cam.rotation = Quaternion.Lerp(cam.rotation, Quaternion.LookRotation(transform.forward), 10 * Time.deltaTime);

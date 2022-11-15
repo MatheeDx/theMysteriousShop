@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Interactive : MonoBehaviour
 {
-    Ray ray;
     RaycastHit hit;
     Inventory inv;
     public Item itemToAdd;
@@ -14,34 +13,18 @@ public class Interactive : MonoBehaviour
 
     void Update()
     {
-        
-        if(Physics.SphereCast(transform.position, 3, transform.forward, out hit, 1f))
+        if(Physics.SphereCast(transform.position, 1.5f, transform.forward, out hit, 3f))
         {
-            Debug.DrawRay(transform.position, transform.forward * 1, Color.yellow);
-            Debug.Log("!!!");
-            if (hit.transform.gameObject.tag == "Yagoda" & inv.CountCheck())
+            if (hit.transform.gameObject.tag == "Yagoda")
             {
-                hit.transform.parent.GetComponent<Yagodi>().press.gameObject.active = true;
-                hit.transform.parent.GetComponent<Yagodi>().press.transform.rotation = transform.rotation;
-                if (Input.GetKeyDown(KeyCode.E) & inv.CountCheck() & hit.transform.parent.GetComponent<Yagodi>().YagodCheck())
+                Yagodi target = hit.transform.parent.GetComponent<Yagodi>();
+                target.YagodaInfo(transform, inv.CountCheck());
+                if (Input.GetButtonDown("Use") & target.YagodCheck() & inv.CountCheck())
                 {
-                    hit.transform.parent.GetComponent<Yagodi>().currentYagod--;
+                    target.YagodaMinus();
                     inv.AddItem(itemToAdd);
-                } 
+                }
             }
-            else if (hit.transform.gameObject.tag == "Yagoda")
-            {
-                hit.transform.parent.GetComponent<Yagodi>().press.gameObject.active = true;
-                hit.transform.parent.GetComponent<Yagodi>().press.text = "No more\nspace";
-                hit.transform.parent.GetComponent<Yagodi>().press.transform.rotation = transform.rotation;
-            }
-                
-        } else
-            {
-                Debug.DrawRay(transform.position, transform.forward * 1 , Color.red);
-            
-            }
+        } 
     }
-
-    
 }

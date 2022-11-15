@@ -1,16 +1,15 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 
 public class Yagodi : MonoBehaviour
 {
     public int currentYagod;
     public float reloadTime = 3;
-    public TextMesh press;
+    [SerializeField] TextMesh press;
 
-    public Transform yagoda1;
-    public Transform yagoda2;
-    public Transform yagoda3;
+    [SerializeField] Transform yagoda1;
+    [SerializeField] Transform yagoda2;
+    [SerializeField] Transform yagoda3;
     
     bool first;
     bool second;
@@ -28,38 +27,33 @@ public class Yagodi : MonoBehaviour
 
     private void Update()
     {
-        press.gameObject.active = false;
+        //Вывод по умолчанию
+        press.gameObject.SetActive(false);
         press.text = "Press E";
+
         if (yagodCount < maxYagod)
             timer += Time.deltaTime;
 
         if(yagodCount != currentYagod & yagodCount >= 0 & yagodCount <= maxYagod)
         {
             if(currentYagod > yagodCount & yagodCount < maxYagod)
-            {
-                yagodaPlus();
-                yagodCount++;
-            } 
+                _YagodaPlus();
             else if (currentYagod < yagodCount & yagodCount > 0)
-            {
-                yagodaMinus();
-                yagodCount--;
-            }
+                _YagodaMinus();
         }
 
         if(timer >= reloadTime & yagodCount < maxYagod)
         {
             timer = 0;
-            yagodaPlus();
-            yagodCount++;
+            _YagodaPlus();
             currentYagod++;
         }
     }
 
-    private void yagodaMinus()
+    private void _YagodaMinus()
     {
-        if (third)
-        {
+        yagodCount--;
+        if (third) {
             third = false;
             yagoda3.GetComponent<Animator>().SetBool("appear", false);
         }
@@ -75,10 +69,10 @@ public class Yagodi : MonoBehaviour
         }
     }
 
-    private void yagodaPlus()
+    private void _YagodaPlus()
     {
-        if (!first)
-        {
+        yagodCount++;
+        if (!first) {
             first = true;
             yagoda1.GetComponent<Animator>().SetBool("appear", true);
         }
@@ -90,12 +84,31 @@ public class Yagodi : MonoBehaviour
             third = true;
             yagoda3.GetComponent<Animator>().SetBool("appear", true);
         }
-            
+    }
+
+    public void YagodaMinus()
+    {
+        currentYagod--;
+    }
+    
+    public void YagodaPlus()
+    {
+        currentYagod++;
     }
     public bool YagodCheck()
     {
         if(currentYagod == 0) 
             return false;
         else return true;
+    }
+
+    public void YagodaInfo(Transform player, bool canTake)
+    {
+        press.gameObject.SetActive(true);
+        press.transform.rotation = player.rotation;
+        if (canTake)
+            press.text = "Press E";
+        else
+            press.text = "No more\nspace";
     }
 }
