@@ -14,7 +14,7 @@ public class InterfaceGUI : MonoBehaviour
     }
 
     private void Start()
-    { 
+    {
         inv.onAddItem += onAddItem;
         Draw();
     }
@@ -24,11 +24,11 @@ public class InterfaceGUI : MonoBehaviour
     private void Draw()
     {
         Clear();
-        for(int i = 0; i < inv.Count(); i++)
+        for (int i = 0; i < inv.Count(); i++)
         {
-            var icon = new GameObject(name: "Icon");
-            icon.AddComponent<Image>();
-            icon.GetComponent<Image>().color = inv.inventoryItems[i].icon.color;
+            var icon = Instantiate(inv.inventoryItems[i].icon);
+            //icon.AddComponent<Image>();
+            //icon.GetComponent<Image>().color = inv.inventoryItems[i].icon.color;
             icon.transform.SetParent(gui.transform);
             icon.transform.localPosition = Vector3.zero;
             icon.transform.localRotation = Quaternion.Euler(Vector3.zero);

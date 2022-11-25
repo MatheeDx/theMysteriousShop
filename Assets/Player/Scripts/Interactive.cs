@@ -4,6 +4,7 @@ public class Interactive : MonoBehaviour
 {
     RaycastHit hit;
     Inventory inv;
+    [SerializeField] Camera cam;
 
     private void Awake()
     {
@@ -33,6 +34,28 @@ public class Interactive : MonoBehaviour
                     target.KrapivaMinus();
                     inv.AddItem(target.itemToAdd);
                 }
+            }
+            if (hit.transform.gameObject.tag == "Kotel")
+            {
+                Kotel target = hit.transform.parent.GetComponent<Kotel>();
+                if (Input.GetButtonDown("Use"))
+                {
+                    if (!target.use)
+                    {
+                        GetComponent<Player_Move>().enabled = false;
+                        target.UseKotel(cam, transform);
+                        
+                        GetComponent<Animator>().SetFloat("walk", 0);
+                    } 
+                    else 
+                    {
+                        target.EscapeKotel();
+                        GetComponent<Player_Move>().enabled = true;
+                        GetComponent<Player_Move>().ReturnCam();
+                    }
+                } else if (!target.use)
+                    target.KotelInfo(transform);
+
             }
         } 
     }

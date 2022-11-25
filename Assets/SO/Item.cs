@@ -6,5 +6,5 @@ public class Item : ScriptableObject
 {
     public int id;
     public string name;
-    public Image icon;
+    public GameObject icon;
 }
