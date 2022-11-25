@@ -4,7 +4,6 @@ public class Interactive : MonoBehaviour
 {
     RaycastHit hit;
     Inventory inv;
-    public Item itemToAdd;
 
     private void Awake()
     {
@@ -22,7 +21,17 @@ public class Interactive : MonoBehaviour
                 if (Input.GetButtonDown("Use") & target.YagodCheck() & inv.CountCheck())
                 {
                     target.YagodaMinus();
-                    inv.AddItem(itemToAdd);
+                    inv.AddItem(target.itemToAdd);
+                }
+            }
+            if (hit.transform.gameObject.tag == "Krapiva")
+            {
+                Krapiva target = hit.transform.parent.GetComponent<Krapiva>();
+                target.KrapivaInfo(transform, inv.CountCheck());
+                if (Input.GetButtonDown("Use") & target.KrapivCheck() & inv.CountCheck())
+                {
+                    target.KrapivaMinus();
+                    inv.AddItem(target.itemToAdd);
                 }
             }
         } 

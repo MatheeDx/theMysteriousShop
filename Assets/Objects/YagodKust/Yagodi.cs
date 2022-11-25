@@ -6,6 +6,7 @@ public class Yagodi : MonoBehaviour
     public int currentYagod;
     public float reloadTime = 3;
     [SerializeField] TextMesh press;
+    public Item itemToAdd;
 
     [SerializeField] Transform yagoda1;
     [SerializeField] Transform yagoda2;
