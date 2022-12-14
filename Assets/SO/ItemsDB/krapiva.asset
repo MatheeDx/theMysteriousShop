@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   name: krapiva
-  icon: {fileID: 0}
+  icon: {fileID: 962509667021220504, guid: 1a1f339556f051d4da1702448c711e77, type: 3}

@@ -1,9 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
+    public Action<Item> onAddItem;
     public List<Item> inventoryItems = new List<Item>();
     public int maxItems = 5;
 
@@ -11,6 +12,7 @@ public class Inventory : MonoBehaviour
     {
         if(CountCheck())
             inventoryItems.Add(item);
+        onAddItem?.Invoke(item);
     }
 
     public bool CountCheck()
@@ -18,5 +20,16 @@ public class Inventory : MonoBehaviour
         if (inventoryItems.Count < maxItems)
             return true;
         else return false;
+    }
+
+    public int Count()
+    {
+        return inventoryItems.Count;
+    }
+
+    public void UseItem(Item item)
+    {
+        inventoryItems.Remove(item);
+        onAddItem?.Invoke(item);
     }
 }

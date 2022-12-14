@@ -4,6 +4,9 @@ public class Player_Move : MonoBehaviour
 {
     Rigidbody Player;
     public Transform cam;
+    public Camera mainCam;
+    Vector3 mainCamPos = new Vector3(1f, 3.5f, -6f);
+    Vector3 mainCamRot = new Vector3(20, 0, 0);
     public float speed;
     public float runSpeed;
     public float rotateSpeed;
@@ -22,7 +25,7 @@ public class Player_Move : MonoBehaviour
     public static Vector3 dir;
     Vector3 orient;
 
-    
+
     void Start()
     {
         Player = GetComponent<Rigidbody>();
@@ -77,5 +80,11 @@ public class Player_Move : MonoBehaviour
         
         cam.rotation = Quaternion.Lerp(cam.rotation, Quaternion.LookRotation(transform.forward), 10 * Time.deltaTime);
         cam.rotation *= Quaternion.Euler(Mathf.Clamp( Yangle,-4, 6) , 0, 0);
+    }
+
+    public void ReturnCam()
+    {
+        mainCam.transform.localPosition = mainCamPos;
+        mainCam.transform.localRotation = Quaternion.Euler(mainCamRot);
     }
 }
