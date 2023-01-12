@@ -31,6 +31,7 @@ public class Player_Move : MonoBehaviour
         Player = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     void FixedUpdate()

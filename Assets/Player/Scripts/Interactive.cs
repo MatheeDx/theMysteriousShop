@@ -38,7 +38,7 @@ public class Interactive : MonoBehaviour
             if (hit.transform.gameObject.tag == "Kotel")
             {
                 Kotel target = hit.transform.parent.GetComponent<Kotel>();
-                if (Input.GetButtonDown("Use"))
+                if (Input.GetButtonDown("Use") | Input.GetButtonDown("Cancel") & target.use)
                 {
                     if (!target.use)
                     {
@@ -47,7 +47,7 @@ public class Interactive : MonoBehaviour
                         
                         GetComponent<Animator>().SetFloat("walk", 0);
                     } 
-                    else 
+                    else
                     {
                         target.EscapeKotel();
                         GetComponent<Player_Move>().enabled = true;
@@ -55,8 +55,9 @@ public class Interactive : MonoBehaviour
                     }
                 } else if (!target.use)
                     target.KotelInfo(transform);
-
             }
+
+            
         } 
     }
 }
