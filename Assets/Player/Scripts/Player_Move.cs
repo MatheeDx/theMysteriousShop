@@ -31,10 +31,25 @@ public class Player_Move : MonoBehaviour
         Player = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        
     }
 
     void FixedUpdate()
     {
+
+        if (Input.GetKeyUp(KeyCode.LeftAlt))
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else if (Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+
         keyHor = Input.GetAxis("Horizontal");
         keyVert = Input.GetAxis("Vertical");
         dir = new Vector3(keyHor, 0, keyVert).normalized;

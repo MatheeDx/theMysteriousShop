@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcc7afa09d5e0944caa174bab8f02c92, type: 3}
+  m_Name: HealthPoison
+  m_EditorClassIdentifier: 
+  liq: 1
+  items:
+  - {fileID: 11400000, guid: 5341f2136a392f34d97f9284a95f4630, type: 2}
+  - {fileID: 11400000, guid: 5341f2136a392f34d97f9284a95f4630, type: 2}
+  result: {fileID: 11400000, guid: 5ca33a74616458940bb60bc18ff584f3, type: 2}

@@ -7,4 +7,5 @@ public class Item : ScriptableObject
     public int id;
     public string name;
     public GameObject icon;
+    public Color color;
 }

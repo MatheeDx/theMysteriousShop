@@ -5,8 +5,12 @@ using UnityEngine;
 public class itemUse : MonoBehaviour
 {
     [SerializeField] Item item;
+
     public void Click()
     {
-        transform.parent.parent.parent.GetComponentInChildren<Inventory>().UseItem(item);
+        if(transform.parent.parent.parent.GetComponentInChildren<Interactive>().KotelUse())
+            transform.parent.parent.parent.GetComponentInChildren<Interactive>().KotelItemAdd(item);
+        else
+            transform.parent.parent.parent.GetComponentInChildren<Inventory>().RemoveItem(item);
     }
 }
