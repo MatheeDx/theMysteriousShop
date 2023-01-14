@@ -27,7 +27,7 @@ public class Inventory : MonoBehaviour
         return inventoryItems.Count;
     }
 
-    public void UseItem(Item item)
+    public void RemoveItem(Item item)
     {
         inventoryItems.Remove(item);
         onAddItem?.Invoke(item);

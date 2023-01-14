@@ -1,9 +1,15 @@
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.Linq;
 
 public class Kotel : MonoBehaviour
 {
-    List<Item> items = new List<Item>();
+    public List<Recipe> recipes = new List<Recipe>();
+    public List<Item> items = new List<Item>();
+    public int liquid;
+    public Item res;
+
     [SerializeField] Inventory inv;
     [SerializeField] TextMesh press;
     [SerializeField] Transform spoonRot;
@@ -12,12 +18,15 @@ public class Kotel : MonoBehaviour
     Material soup;
     [SerializeField] GameObject kotelGUI;
 
+    
+
     public bool use = false;
     public bool empty = true;
 
     private void Awake()
     {
         soup = soupTrans.GetComponent<Material>();
+        res = null;
     }
 
     private void Update()
@@ -28,10 +37,11 @@ public class Kotel : MonoBehaviour
 
         if (use)
         {
-            spoonRot.Rotate(0, Random.Range(1,4), 0);
-            spoon.Rotate(0, 0, Random.Range(-1, 1));
-            soupTrans.Rotate(0, 0, Random.Range(1, 2));
+            spoonRot.Rotate(0, UnityEngine.Random.Range(1,4), 0);
+            spoon.Rotate(0, 0, UnityEngine.Random.Range(-1, 1));
+            soupTrans.Rotate(0, 0, UnityEngine.Random.Range(1, 2));
         }
+        
     }
 
     public void UseKotel(Camera cam, Transform player)
@@ -58,5 +68,45 @@ public class Kotel : MonoBehaviour
         press.gameObject.SetActive(true);
         press.transform.rotation = player.rotation;
         press.text = "Press E";
+    }
+
+    public void Clear()
+    {
+        items.Clear();
+        liquid = 0;
+        res = null;
+    }
+
+    public void Use()
+    {
+        int[] temp1 = new int[items.Count];
+        for(int i = 0; i < temp1.Length; i++)
+        {
+            temp1[i] = items[i].id;
+        }
+        Array.Sort(temp1);
+
+        for (int i = 0; i < recipes.Count; i++)
+        {
+            int[] temp2 = new int[recipes[i].items.Count];
+            for (int j = 0; j < temp2.Length; j++)
+            {
+                temp2[j] = recipes[i].items[j].id;
+            }
+            Array.Sort(temp2);
+            if (Enumerable.SequenceEqual(temp1, temp2))
+                res = recipes[i].result;
+            else
+                Debug.Log("Trash");
+        } 
+        items.Clear();
+    }
+
+    public void Grab()
+    {
+        if (res == null)
+            Debug.Log("Котел пуст");
+        inv.AddItem(res);
+        Clear();
     }
 }
