@@ -8,6 +8,7 @@ public class Krapiva : MonoBehaviour
     [SerializeField] TextMesh press;
     [SerializeField] Animator anim;
     public Item itemToAdd;
+    public AudioClip clip;
 
     int krapivCount;
     int maxKrapiv = 1;
@@ -55,6 +56,7 @@ public class Krapiva : MonoBehaviour
     {
         anim.SetBool("appear", false);
         krapivCount--;
+        GetComponent<AudioSource>().PlayOneShot(clip);
     }
 
     public void KrapivaPlus()

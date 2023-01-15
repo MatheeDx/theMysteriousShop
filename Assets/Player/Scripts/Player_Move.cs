@@ -13,6 +13,7 @@ public class Player_Move : MonoBehaviour
     public float animSpeed;
     public float camSpeed;
     [SerializeField] Vector3 camPos;
+    public bool isMoving=false;
 
     Animator anim;
     float animTimer;
@@ -61,6 +62,7 @@ public class Player_Move : MonoBehaviour
         Player.transform.Rotate(X * Vector3.up * rotateSpeed);
         if (dir.magnitude >= 0.1)
         {
+            isMoving = true;
             if (Input.GetButton("Run"))
             {
                 Player.velocity = dir.z * transform.forward * runSpeed + dir.x * transform.right * runSpeed * 0.5f;
@@ -72,8 +74,12 @@ public class Player_Move : MonoBehaviour
                 animTimer = Mathf.Lerp(animTimer, 1.0f, Time.deltaTime * animSpeed);
             }
 
-        } else
+        }
+        else
+        {
+            isMoving = false;
             animTimer = Mathf.Lerp(animTimer, 0, Time.deltaTime * animSpeed);
+        }
         
         anim.SetFloat("walk", animTimer);
 

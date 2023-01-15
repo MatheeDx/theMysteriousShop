@@ -7,6 +7,8 @@ TagManager:
   - Yagoda
   - Krapiva
   - Kotel
+  - Ground
+  - Floor
   layers:
   - Default
   - TransparentFX

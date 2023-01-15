@@ -7,6 +7,7 @@ public class Yagodi : MonoBehaviour
     public float reloadTime = 3;
     [SerializeField] TextMesh press;
     public Item itemToAdd;
+    public AudioClip clip;
 
     [SerializeField] Transform yagoda1;
     [SerializeField] Transform yagoda2;
@@ -57,16 +58,19 @@ public class Yagodi : MonoBehaviour
         if (third) {
             third = false;
             yagoda3.GetComponent<Animator>().SetBool("appear", false);
+            GetComponent<AudioSource>().PlayOneShot(clip);
         }
         else if (second)
         {
             second = false;
             yagoda2.GetComponent<Animator>().SetBool("appear", false);
+            GetComponent<AudioSource>().PlayOneShot(clip);
         }
         else if (first)
         {
             first = false;
             yagoda1.GetComponent<Animator>().SetBool("appear", false);
+            GetComponent<AudioSource>().PlayOneShot(clip);
         }
     }
 
