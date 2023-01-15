@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Move : MonoBehaviour
 {
@@ -9,7 +10,7 @@ public class Player_Move : MonoBehaviour
     Vector3 mainCamRot = new Vector3(20, 0, 0);
     public float speed;
     public float runSpeed;
-    public float rotateSpeed;
+    public Slider sl;
     public float animSpeed;
     public float camSpeed;
     [SerializeField] Vector3 camPos;
@@ -35,7 +36,6 @@ public class Player_Move : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         
     }
-
     void FixedUpdate()
     {
 
@@ -59,7 +59,7 @@ public class Player_Move : MonoBehaviour
         Y = Mathf.Lerp(Y, Input.GetAxis("Mouse Y"), Time.deltaTime * 3);
 
 
-        Player.transform.Rotate(X * Vector3.up * rotateSpeed);
+        Player.transform.Rotate(X * Vector3.up * sl.value);
         if (dir.magnitude >= 0.1)
         {
             isMoving = true;
