@@ -65,6 +65,8 @@ public class VedmaCore : MonoBehaviour
     {
         taskShow = false;
         task.gameObject.SetActive(false);
+        Inventory.cash += whatWant.price;
+        Debug.Log(Inventory.cash);
         StartCoroutine(Leave());
     }
 

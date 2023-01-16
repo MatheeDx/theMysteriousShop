@@ -7,6 +7,7 @@ public class Inventory : MonoBehaviour
     public Action<Item> onAddItem;
     public List<Item> inventoryItems = new List<Item>();
     public int maxItems = 5;
+    public static float cash = 0;
 
     public void AddItem(Item item)
     {
