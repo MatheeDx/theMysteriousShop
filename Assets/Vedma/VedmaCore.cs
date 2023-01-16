@@ -56,6 +56,7 @@ public class VedmaCore : MonoBehaviour
 
     public void GiveATask()
     {
+        isMove = false;
         task.gameObject.SetActive(false);
         taskShow = true;
         anim.SetBool("isStanding", true);
@@ -63,6 +64,7 @@ public class VedmaCore : MonoBehaviour
 
     public void Award()
     {
+        isMove=true;
         taskShow = false;
         task.gameObject.SetActive(false);
         Inventory.cash += whatWant.price;
@@ -113,12 +115,12 @@ public class VedmaCore : MonoBehaviour
     }
     public void OnCollisionStay(Collision collision)
     {
-        if (GetComponent<Player_Move>().isMoving && !isMove)
+        if (!isMove)
         {
             collision.transform.GetComponent<Sounds>().PlaySteps();
             isMove = true;
         }
-        else if (!GetComponent<Player_Move>().isMoving && isMove)
+        else if (isMove)
         {
             collision.transform.GetComponent<Sounds>().StopSteps();
             isMove = false;

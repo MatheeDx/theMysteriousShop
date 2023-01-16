@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -713,6 +713,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3487241763206398422, guid: 0a441b7644178124d81decacbdfeb0f4, type: 3}
+      propertyPath: cashHUD
+      value: 
+      objectReference: {fileID: 2095163754}
     - target: {fileID: 3684274074674406644, guid: 0a441b7644178124d81decacbdfeb0f4, type: 3}
       propertyPath: m_FontData.m_FontSize
       value: 25
@@ -4210,7 +4214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3592e4d2243778649980e9cd8b2f11d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 8300000, guid: 243846da98236e949ab652868fc5214c, type: 3}
+  source: {fileID: 837173564}
 --- !u!82 &837173564
 AudioSource:
   m_ObjectHideFlags: 0
@@ -7075,7 +7079,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3592e4d2243778649980e9cd8b2f11d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  source: {fileID: 0}
+  source: {fileID: 1408229225}
 --- !u!82 &1408229225
 AudioSource:
   m_ObjectHideFlags: 0

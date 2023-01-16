@@ -19,7 +19,7 @@ public class NPCMake : MonoBehaviour
         Transform target = Instantiate(npc1);
         target.position = transform.position;
         target.rotation = transform.rotation;
-        target.GetComponent<VedmaCore>().whatWant = goods[Random.Range(0, goods.Count-1)];
+        target.GetComponent<VedmaCore>().whatWant = goods[Random.Range(0, goods.Count)];
         target.GetComponent<VedmaCore>().npcController = transform.GetComponent<NPCMake>();
     }
 }
