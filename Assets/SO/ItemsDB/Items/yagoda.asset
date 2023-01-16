@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   name: Yagoda
-  icon: {fileID: 6914909344406366802, guid: 011e550d4287d8c49b5cc21884c57993, type: 3}
+  iconGUI: {fileID: 6914909344406366802, guid: 011e550d4287d8c49b5cc21884c57993, type: 3}
+  icon: {fileID: 21300000, guid: 9c83109d04a5d524d9086f15387bdb8d, type: 3}
+  color: {r: 0, g: 0.43800533, b: 0.8490566, a: 0.09803922}

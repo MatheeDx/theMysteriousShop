@@ -8,8 +8,10 @@ public class itemUse : MonoBehaviour
 
     public void Click()
     {
-        if(transform.parent.parent.parent.GetComponentInChildren<Interactive>().KotelUse())
+        if (transform.parent.parent.parent.GetComponentInChildren<Interactive>().KotelUse())
+        {
             transform.parent.parent.parent.GetComponentInChildren<Interactive>().KotelItemAdd(item);
+        }
         else
             transform.parent.parent.parent.GetComponentInChildren<Inventory>().RemoveItem(item);
     }

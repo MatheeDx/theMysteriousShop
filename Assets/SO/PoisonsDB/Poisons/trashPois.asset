@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   name: "\u0428\u043B\u0430\u043A"
+  iconGUI: {fileID: 0}
   icon: {fileID: 0}
-  color: {r: 0.13333334, g: 0.28235295, b: 0, a: 0}
+  color: {r: 0.13333334, g: 0.28235295, b: 0, a: 0.09803922}

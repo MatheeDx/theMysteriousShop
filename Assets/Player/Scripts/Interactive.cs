@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Linq;
+using System;
 
 public class Interactive : MonoBehaviour
 {
@@ -35,6 +37,23 @@ public class Interactive : MonoBehaviour
                 {
                     target.KrapivaMinus();
                     inv.AddItem(target.itemToAdd);
+                }
+            }
+            if (hit.transform.gameObject.tag == "Vedma")
+            {
+                VedmaCore target = hit.transform.GetComponent<VedmaCore>();
+                target.VedmaInfo(transform);
+                if (Input.GetButtonDown("Use"))
+                {
+                    foreach(Item item in inv.inventoryItems)
+                    {
+                        if(item.id == target.ItemCheck())
+                        {
+                            target.Award();
+                            inv.RemoveItem(item);
+                            break;
+                        }
+                    }
                 }
             }
             if (hit.transform.gameObject.tag == "Kotel")
@@ -74,7 +93,8 @@ public class Interactive : MonoBehaviour
     {
         if (kotelUse)
         {
-            kotel.items.Add(item);
+
+            kotel.AddItem(item);
             inv.RemoveItem(item);
         }      
     }

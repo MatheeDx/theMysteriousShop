@@ -10,9 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5e1b5ea7c0d392c42b2141dc22eadb7f, type: 3}
-  m_Name: heathPois
+  m_Name: staminaPois
   m_EditorClassIdentifier: 
-  id: 1
-  name: "\u041B\u0435\u0447\u0435\u0431\u043D\u043E\u0435 \u0437\u0435\u043B\u044C\u0435"
-  icon: {fileID: 962509667021220504, guid: dd5cf99217694a042a77dd522e15f216, type: 3}
-  color: {r: 0.039443612, g: 1, b: 0, a: 0}
+  id: 3
+  name: "\u0417\u0435\u043B\u044C\u0435 \u0432\u044B\u043D\u043E\u0441\u043B\u0438\u0432\u043E\u0441\u0442\u0438"
+  iconGUI: {fileID: 962509667021220504, guid: dd5cf99217694a042a77dd522e15f216, type: 3}
+  icon: {fileID: 21300000, guid: a0e1bbbbc720d5e498947663d963830f, type: 3}
+  color: {r: 0.039443612, g: 1, b: 0, a: 0.09803922}
