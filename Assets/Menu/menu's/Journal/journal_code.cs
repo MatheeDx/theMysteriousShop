@@ -14,6 +14,8 @@ public class journal_code : MonoBehaviour
     }
     public void BackGame()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         JournalPanel.SetActive(false);
         menuExit = !menuExit;
     }
@@ -21,6 +23,8 @@ public class journal_code : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
             Debug.Log("Журнал открылся");
             menuExit = !menuExit;
 
