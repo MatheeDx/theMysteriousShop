@@ -1601,6 +1601,25 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ced8f70465d865b48b2518dcfa6713c1, type: 3}
   m_PrefabInstance: {fileID: 915819162}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &263380282 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 0580f2dd7d826cb4e8e0fb081dd9667f, type: 3}
+  m_PrefabInstance: {fileID: 251551773}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &263380283
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 263380282}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.17
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0.12, y: 1.02, z: 0}
 --- !u!1001 &300224959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6086,7 +6105,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 1b474c6768f1ee547b9bf29dbbc4f49b, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.345
   m_Pitch: 1
   Loop: 1
   Mute: 0
