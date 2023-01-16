@@ -15,7 +15,7 @@ public class Kotel : MonoBehaviour
     [SerializeField] Transform spoonRot;
     [SerializeField] Transform spoon;
     [SerializeField] Transform soupTrans;
-    Material soup;
+    Renderer soup;
     [SerializeField] GameObject kotelGUI;
 
     
@@ -25,7 +25,7 @@ public class Kotel : MonoBehaviour
 
     private void Awake()
     {
-        soup = soupTrans.GetComponent<Material>();
+        soup = soupTrans.GetComponent<Renderer>();
         res = null;
     }
 
@@ -95,9 +95,14 @@ public class Kotel : MonoBehaviour
             }
             Array.Sort(temp2);
             if (Enumerable.SequenceEqual(temp1, temp2))
+            {
                 res = recipes[i].result;
-            else
-                Debug.Log("Trash");
+                soup.material.color = res.color;
+            } else if (items.Count > 0)
+            {
+                soup.material.color = new Color(0.13f, 0.4f, 0, 0.09f);
+            }
+                
         } 
         items.Clear();
     }
@@ -105,8 +110,18 @@ public class Kotel : MonoBehaviour
     public void Grab()
     {
         if (res == null)
+        {
             Debug.Log("Котел пуст");
+            return;
+        }
         inv.AddItem(res);
+        soup.material.color = Color.blue;
         Clear();
+    }
+
+    public void AddItem(Item item)
+    {
+        items.Add(item);
+        soup.material.color = item.color;
     }
 }
