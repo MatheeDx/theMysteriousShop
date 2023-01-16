@@ -6,6 +6,7 @@ public class Item : ScriptableObject
 {
     public int id;
     public string name;
+    public float price;
     public GameObject iconGUI;
     public Sprite icon;
     public Color color;
