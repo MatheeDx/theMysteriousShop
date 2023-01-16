@@ -672,9 +672,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movePoints:
-  - {x: 12, y: 6.8}
-  - {x: 4.52, y: 6.8}
-  - {x: 4.52, y: 13.7}
+  - {x: 38, y: -10}
+  - {x: 13, y: -11}
+  - {x: 10, y: -2}
+  - {x: 1.5, y: 6}
   speed: 1
   whatWant: {fileID: 11400000, guid: 5ca33a74616458940bb60bc18ff584f3, type: 2}
   task: {fileID: 5904281603194011433}
