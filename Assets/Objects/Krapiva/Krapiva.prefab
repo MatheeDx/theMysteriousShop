@@ -51,6 +51,7 @@ MonoBehaviour:
   press: {fileID: 5373391163806617837}
   anim: {fileID: 7507376456030302007}
   itemToAdd: {fileID: 11400000, guid: 5341f2136a392f34d97f9284a95f4630, type: 2}
+  clip: {fileID: 0}
 --- !u!1 &5373391163806617836
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,7 +105,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  - {fileID: 2100000, guid: b8341e08c9ad8a645a2a4cbf273e59d1, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -144,7 +145,7 @@ TextMesh:
   m_FontSize: 139
   m_FontStyle: 0
   m_RichText: 1
-  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Font: {fileID: 12800000, guid: b8341e08c9ad8a645a2a4cbf273e59d1, type: 3}
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
