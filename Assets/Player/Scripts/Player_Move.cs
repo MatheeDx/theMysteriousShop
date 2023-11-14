@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player_Move : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Player_Move : MonoBehaviour
     public float camSpeed;
     [SerializeField] Vector3 camPos;
     public bool isMoving=false;
+
+    [SerializeField] public TMP_Text hintText;
 
     Animator anim;
     float animTimer;

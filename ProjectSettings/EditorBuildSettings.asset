@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartLocate.unity
     guid: a3cfe7f36c8905c4081943d5c28cc54b
+  - enabled: 1
+    path: Assets/Scenes/Location2.unity
+    guid: 695be0d49e356d44b83b0968f52c4650
   m_configObjects: {}
