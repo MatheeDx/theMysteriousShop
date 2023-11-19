@@ -18,11 +18,25 @@ public class TeleScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player") {
             if (type == 1)
                 SceneManager.LoadScene(locId);
             else
+                other.GetComponent<Player_Move>().hintText.text = hint; 
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (type == 2) { 
                 other.GetComponent<Player_Move>().hintText.text = hint;
+                if (Input.GetKeyDown(KeyCode.E))
+                    SceneManager.LoadScene(locId);
+            }
+                
+        }
     }
 
     private void OnTriggerExit(Collider other)
