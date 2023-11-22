@@ -25,7 +25,6 @@ public class journal_code : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            Debug.Log("Журнал открылся");
             menuExit = !menuExit;
 
             if (JournalPanel == menuExit)

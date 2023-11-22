@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName="Food Item", menuName="Inventory/Item/New Food Item")]
+[CreateAssetMenu(fileName="Food Item", menuName="Inventory/Item1/New Food Item")]
 public class FoodItem : ItemScriptableObject
 {
     public float healAmount;

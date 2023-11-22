@@ -13,7 +13,6 @@ public class PauseMenu : MonoBehaviour
     }
     public void ExitGame()
     {
-        Debug.Log("Игра всё");
         Application.Quit();
     }
     public void BackGame()
@@ -30,7 +29,6 @@ public class PauseMenu : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-            Debug.Log("Вроде работает");
             menuExit = !menuExit;
 
             if (PausePanel == menuExit)

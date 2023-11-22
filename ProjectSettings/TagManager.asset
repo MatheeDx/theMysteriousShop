@@ -9,6 +9,7 @@ TagManager:
   - Kotel
   - Ground
   - Floor
+  - trash
   layers:
   - Default
   - TransparentFX
