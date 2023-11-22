@@ -43,8 +43,10 @@ public class InventoryManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.I)){
             isOpened = !isOpened;
             if (isOpened){
+                Cursor.lockState = CursorLockMode.Confined;
                 UIPanel.SetActive(true);
             }else{
+                Cursor.lockState = CursorLockMode.Locked;
                 UIPanel.SetActive(false);
             }
         }
@@ -61,7 +63,7 @@ public class InventoryManager : MonoBehaviour
         } 
     }
     private void OnTriggerExit(Collider collision){
-        if(collision.TryGetComponent(out Item item)){
+        if(collision.TryGetComponent(out Item1 item)){
                 ActiveItem = null;
         } 
     }
