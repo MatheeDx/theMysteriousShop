@@ -53,18 +53,21 @@ public class InventoryManager : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.E) & ActiveItem != null){
                 AddItem(ActiveItem.item, ActiveItem.amount);
                 ActiveItem.Kill();
+                GetComponent<Player_Move>().hintText.text = "";
                 ActiveItem = null;
                 count++;
             }
     }
     private void OnTriggerEnter(Collider collision){
         if(collision.TryGetComponent(out Item1 item)){
-                ActiveItem = item;
+            ActiveItem = item;
+            GetComponent<Player_Move>().hintText.text = "Е - поднять";
         } 
     }
     private void OnTriggerExit(Collider collision){
         if(collision.TryGetComponent(out Item1 item)){
-                ActiveItem = null;
+            ActiveItem = null;
+            GetComponent<Player_Move>().hintText.text = "";
         } 
     }
     private void AddItem(ItemScriptableObject _item, int _amount){
