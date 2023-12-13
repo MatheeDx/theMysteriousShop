@@ -52,13 +52,34 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
         if (eventData.pointerCurrentRaycast.gameObject.tag == "trash")
         {
-            Debug.Log("Ебать");
             GameObject itemObject = Instantiate(oldSlot.item.itemPrefab, player.position + Vector3.up + player.forward, Quaternion.identity);
 
             itemObject.GetComponent<Item1>().amount = oldSlot.amount;
 
             NullifySlotData();
         }
+
+        if (eventData.pointerCurrentRaycast.gameObject.tag == "KotelHover")
+        {
+            /*GameObject itemObject = Instantiate(oldSlot.item.itemPrefab, player.position + Vector3.up + player.forward, Quaternion.identity);
+
+            itemObject.GetComponent<Item1>().amount = oldSlot.amount;
+
+            NullifySlotData();*/
+
+            player.GetComponent<Interactive>().KotelItemAdd(oldSlot.item);
+
+            if (oldSlot.amount > 1)
+            {
+                oldSlot.amount--;
+                oldSlot.itemAmountText.text = oldSlot.amount.ToString();
+            }
+            else
+                NullifySlotData();
+
+            Debug.Log("kotel");
+        }
+
         else if(eventData.pointerCurrentRaycast.gameObject.transform.parent.parent.GetComponent<InventorySlot>() != null)
         {
 

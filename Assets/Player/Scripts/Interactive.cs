@@ -1,18 +1,19 @@
 using UnityEngine;
+using TMPro;
 using System.Linq;
 using System;
 
 public class Interactive : MonoBehaviour
 {
     RaycastHit hit;
-    Inventory inv;
     [SerializeField] Camera cam;
     bool kotelUse = false;
     Kotel kotel;
+    [SerializeField] private TMP_Text hint;
 
     private void Awake()
     {
-        inv = GetComponent<Inventory>();
+        //hint = GetComponent<Player_Move>().hintText;
     }
 
     void Update()
@@ -21,52 +22,38 @@ public class Interactive : MonoBehaviour
         {
             if (hit.transform.gameObject.tag == "trash")
             {
+                GetComponent<Player_Move>().hintText.text = "Подобрать";
                 Item1 target = hit.transform.GetComponent<Item1>();
                 if (Input.GetButtonDown("Use"))
                 {
                     GetComponent<InventoryManager>().AddItem(target.item, target.amount);
+                    hint.text = "";
                     target.Kill();
                 }
             }
-            if (hit.transform.gameObject.tag == "Yagoda")
+            else if(hit.transform.gameObject.tag == "Yagoda")
             {
                 Yagodi target = hit.transform.parent.GetComponent<Yagodi>();
-                target.YagodaInfo(transform, inv.CountCheck());
+                hint.text = "Собрать";
                 if (Input.GetButtonDown("Use") & target.YagodCheck())
                 {
                     target.YagodaMinus();
                     GetComponent<InventoryManager>().AddItem(target.itemToAdd, 1);
-
+                    hint.text = "";
                 }
             }
-            if (hit.transform.gameObject.tag == "Krapiva")
+            else if(hit.transform.gameObject.tag == "Krapiva")
             {
                 Krapiva target = hit.transform.GetComponent<Krapiva>();
-                target.KrapivaInfo(transform, inv.CountCheck());
+                hint.text = "Собрать";
                 if (Input.GetButtonDown("Use") & target.KrapivCheck())
                 {
                     target.KrapivaMinus();
                     GetComponent<InventoryManager>().AddItem(target.itemToAdd, 1);
+                    hint.text = "";
                 }
             }
-            if (hit.transform.gameObject.tag == "Vedma")
-            {
-                VedmaCore target = hit.transform.GetComponent<VedmaCore>();
-                target.VedmaInfo(transform);
-                if (Input.GetButtonDown("Use"))
-                {
-                    foreach(Item item in inv.inventoryItems)
-                    {
-                        if(item.id == target.ItemCheck())
-                        {
-                            target.Award();
-                            inv.RemoveItem(item);
-                            break;
-                        }
-                    }
-                }
-            }
-            if (hit.transform.gameObject.tag == "Kotel")
+            else if(hit.transform.gameObject.tag == "Kotel")
             {
                 Kotel target = hit.transform.parent.GetComponent<Kotel>();
                 kotel = target;
@@ -90,8 +77,15 @@ public class Interactive : MonoBehaviour
                     }
                 } else if (!target.use)
                     target.KotelInfo(transform);
+            } else
+            {
+                hint.text = "";
             }
-        } 
+        }
+        else
+        {
+            hint.text = "";
+        }
     }
 
     public bool KotelUse()
@@ -105,7 +99,6 @@ public class Interactive : MonoBehaviour
         {
 
             kotel.AddItem(item);
-            inv.RemoveItem(item);
         }      
     }
 }

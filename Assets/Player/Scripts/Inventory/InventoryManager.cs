@@ -7,9 +7,13 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
     public GameObject UIPanel;
+    public GameObject KotelGUI;
     public Transform inventoryPanel;
+    public Transform instrumInventoryPanel;
     public GameObject hat_panel;
     public List<InventorySlot> slots = new List<InventorySlot>();
+    public List<InventorySlot> instrumSlots = new List<InventorySlot>();
+
     public bool isOpened;
 
     public GameObject hat;
@@ -21,12 +25,25 @@ public class InventoryManager : MonoBehaviour
     }
     void Start()
     {
-        for(int i = 0; i< inventoryPanel.childCount; i++){
-            if(inventoryPanel.GetChild(i).GetComponent<InventorySlot>() != null){
-                slots.Add(inventoryPanel.GetChild(i).GetComponent<InventorySlot>());   
+        for (int i = 0; i < inventoryPanel.childCount; i++)
+        {
+            if (inventoryPanel.GetChild(i).GetComponent<InventorySlot>() != null)
+            {
+                slots.Add(inventoryPanel.GetChild(i).GetComponent<InventorySlot>());
             }
         }
-        UIPanel.SetActive(false);
+
+
+        for (int i = 0; i < instrumInventoryPanel.childCount; i++)
+        {
+            if (instrumInventoryPanel.GetChild(i).GetComponent<InventorySlot>() != null)
+            {
+                instrumSlots.Add(instrumInventoryPanel.GetChild(i).GetComponent<InventorySlot>());
+            }
+        }
+
+            UIPanel.SetActive(false);
+        KotelGUI.SetActive(false);
 
         hat = transform.GetChild(2).gameObject;
 
@@ -58,7 +75,7 @@ public class InventoryManager : MonoBehaviour
                 count++;
             }*/
     }
-    private void OnTriggerEnter(Collider collision){
+    /*private void OnTriggerEnter(Collider collision){
         if(collision.TryGetComponent(out Item item)){
             ActiveItem = item;
             GetComponent<Player_Move>().hintText.text = "Е - поднять";
@@ -69,11 +86,28 @@ public class InventoryManager : MonoBehaviour
             ActiveItem = null;
             GetComponent<Player_Move>().hintText.text = "";
         } 
-    }
+    }*/
     public void AddItem(Item _item, int _amount){
         foreach(InventorySlot slot in slots){
             if(slot.item == _item){
-                if(slot.amount + _amount <= _item.maximumAmount){
+                if(slot.amount + _amount <= _item.maximumAmount)
+                {
+                    Debug.Log(slot.amount + " " + _amount);
+                    slot.amount += _amount;
+                    
+                    slot.itemAmountText.text = slot.amount.ToString();
+                    break;
+                }
+                //break;
+            }
+        }
+        foreach (InventorySlot slot in instrumSlots)
+        {
+            if (slot.item == _item)
+            {
+                if (slot.amount + _amount <= _item.maximumAmount)
+                {
+                    Debug.Log(slot.amount + " " + _amount);
                     slot.amount += _amount;
                     slot.itemAmountText.text = slot.amount.ToString();
                     return;
@@ -81,8 +115,21 @@ public class InventoryManager : MonoBehaviour
                 //break;
             }
         }
-        foreach(InventorySlot slot in slots){
-            if(slot.isEmpty == true){
+        foreach (InventorySlot slot in slots){
+            if(slot.isEmpty == true)
+            {
+                slot.item = _item;
+                slot.amount = _amount;
+                slot.isEmpty = false;
+                slot.SetIcon(_item.icon);
+                slot.itemAmountText.text = _amount.ToString();
+                break;
+            }
+        }
+        foreach (InventorySlot slot in instrumSlots)
+        {
+            if (slot.isEmpty == true)
+            {
                 slot.item = _item;
                 slot.amount = _amount;
                 slot.isEmpty = false;

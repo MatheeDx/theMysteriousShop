@@ -10,6 +10,8 @@ TagManager:
   - Ground
   - Floor
   - trash
+  - Vedma
+  - KotelHover
   layers:
   - Default
   - TransparentFX

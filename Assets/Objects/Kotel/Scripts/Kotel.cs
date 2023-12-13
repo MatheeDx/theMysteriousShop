@@ -10,7 +10,7 @@ public class Kotel : MonoBehaviour
     public int liquid;
     public Item res;
 
-    [SerializeField] Inventory inv;
+    [SerializeField] InventoryManager inv;
     [SerializeField] TextMesh press;
     [SerializeField] Transform spoonRot;
     [SerializeField] Transform spoon;
@@ -114,7 +114,7 @@ public class Kotel : MonoBehaviour
             Debug.Log("Котел пуст");
             return;
         }
-        inv.AddItem(res);
+        inv.AddItem(res, 1);
         soup.material.color = Color.blue;
         Clear();
     }
