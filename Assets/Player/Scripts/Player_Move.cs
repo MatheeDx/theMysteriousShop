@@ -16,6 +16,7 @@ public class Player_Move : MonoBehaviour
     public float camSpeed;
     [SerializeField] Vector3 camPos;
     public bool isMoving=false;
+    public bool realIsMoving = true;
 
     [SerializeField] public TMP_Text hintText;
 
@@ -29,6 +30,10 @@ public class Player_Move : MonoBehaviour
     float keyVert;
     public static Vector3 dir;
     Vector3 orient;
+    bool trans = false;
+    float timerTrans = 0;
+
+    static int windows = 0;
 
 
     void Start()
@@ -42,18 +47,45 @@ public class Player_Move : MonoBehaviour
     void FixedUpdate()
     {
 
+        checkWindows();
+
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            anim.SetBool("isHitting", true);
+            trans = true;
+        } else if (Input.GetKeyUp(KeyCode.Mouse0))
+            anim.SetBool("isHitting", false);
+
+        if (trans && timerTrans < 1.9f)
+        {
+            timerTrans += Time.deltaTime;
+            speed = 1.5f;
+        }
+        else
+        {
+            speed = 5.5f;
+            trans = false;
+            timerTrans = 0;
+            if (!Input.GetKey(KeyCode.Mouse0))
+                anim.SetBool("isHitting", false);
+        }
+
         if (Input.GetKeyUp(KeyCode.LeftAlt))
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            minusWindow();
         }
         else if (Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            plusWindow();
         }
 
+        if (realIsMoving)
+            Moving();
+        
+    }
 
+    public void Moving()
+    {
         keyHor = Input.GetAxis("Horizontal");
         keyVert = Input.GetAxis("Vertical");
         dir = new Vector3(keyHor, 0, keyVert).normalized;
@@ -83,12 +115,12 @@ public class Player_Move : MonoBehaviour
             isMoving = false;
             animTimer = Mathf.Lerp(animTimer, 0, Time.deltaTime * animSpeed);
         }
-        
+
         anim.SetFloat("walk", animTimer);
 
         cam.position = Vector3.Lerp(cam.position, Player.position + camPos, camSpeed * Time.deltaTime);
 
-        
+
         Yangle -= Y;
         if (Yangle < -4)
         {
@@ -100,15 +132,40 @@ public class Player_Move : MonoBehaviour
             Y = 0;
             Yangle = 6;
         }
-        
-        
+
+
         cam.rotation = Quaternion.Lerp(cam.rotation, Quaternion.LookRotation(transform.forward), 10 * Time.deltaTime);
-        cam.rotation *= Quaternion.Euler(Mathf.Clamp( Yangle,-4, 6) , 0, 0);
+        cam.rotation *= Quaternion.Euler(Mathf.Clamp(Yangle, -4, 6), 0, 0);
     }
 
     public void ReturnCam()
     {
         mainCam.transform.localPosition = mainCamPos;
         mainCam.transform.localRotation = Quaternion.Euler(mainCamRot);
+    }
+
+    public static void minusWindow()
+    {
+        windows--;
+    }
+
+    public static void plusWindow()
+    {
+        windows++;
+    }
+
+    static void checkWindows()
+    {
+        if (windows > 0)
+        {
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.Confined;
+        }
+        else
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        Debug.Log(windows);
     }
 }

@@ -32,8 +32,7 @@ public class trigger : MonoBehaviour
         }
         else
         {
-            Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            Player_Move.minusWindow();
             Panel.SetActive(false);
             list = 1;
         }
@@ -51,8 +50,7 @@ public class trigger : MonoBehaviour
                 TextMP.text += line + Environment.NewLine;
 
             }
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            Player_Move.plusWindow();
             Panel.SetActive(true);
             firsttime = true;
         }

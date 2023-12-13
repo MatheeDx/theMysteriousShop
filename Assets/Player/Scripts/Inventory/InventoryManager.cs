@@ -60,10 +60,12 @@ public class InventoryManager : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.I)){
             isOpened = !isOpened;
             if (isOpened){
-                Cursor.lockState = CursorLockMode.Confined;
+                //Cursor.lockState = CursorLockMode.Confined;
+                Player_Move.plusWindow();
                 UIPanel.SetActive(true);
             }else{
-                Cursor.lockState = CursorLockMode.Locked;
+                //Cursor.lockState = CursorLockMode.Locked;
+                Player_Move.minusWindow();
                 UIPanel.SetActive(false);
             }
         }

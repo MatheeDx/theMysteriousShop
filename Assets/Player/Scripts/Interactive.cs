@@ -61,7 +61,8 @@ public class Interactive : MonoBehaviour
                 {
                     if (!target.use)
                     {
-                        GetComponent<Player_Move>().enabled = false;
+                        //GetComponent<Player_Move>().enabled = false;
+                        GetComponent<Player_Move>().realIsMoving = false;
                         target.UseKotel(cam, transform);
                         kotelUse = true;
                         
@@ -71,7 +72,8 @@ public class Interactive : MonoBehaviour
                     {
                         kotel = null;
                         target.EscapeKotel();
-                        GetComponent<Player_Move>().enabled = true;
+                        //GetComponent<Player_Move>().enabled = true;
+                        GetComponent<Player_Move>().realIsMoving = true;
                         GetComponent<Player_Move>().ReturnCam();
                         kotelUse = false;
                     }

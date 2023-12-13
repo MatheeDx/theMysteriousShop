@@ -19,25 +19,24 @@ public class PauseMenu : MonoBehaviour
     {
         PausePanel.SetActive(false);
         menuExit = !menuExit;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Player_Move.minusWindow();
     }
    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
             menuExit = !menuExit;
 
             if (PausePanel == menuExit)
             {
                 PausePanel.SetActive(true);
+                Player_Move.plusWindow();
             }
             else
             {
                 PausePanel.SetActive(false);
+                Player_Move.minusWindow();
             }
         }
     }

@@ -14,8 +14,7 @@ public class journal_code : MonoBehaviour
     }
     public void BackGame()
     {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        Player_Move.minusWindow();
         JournalPanel.SetActive(false);
         menuExit = !menuExit;
     }
@@ -23,17 +22,18 @@ public class journal_code : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.J))
         {
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
+            //Player_Move.plusWindow();
             menuExit = !menuExit;
 
             if (JournalPanel == menuExit)
             {
                 JournalPanel.SetActive(true);
+                Player_Move.plusWindow();
             }
             else
             {
                 JournalPanel.SetActive(false);
+                Player_Move.minusWindow();
             }
         }
     }

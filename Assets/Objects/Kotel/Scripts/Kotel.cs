@@ -49,16 +49,14 @@ public class Kotel : MonoBehaviour
         cam.transform.position = transform.position + new Vector3(0, 3.5f, 0);
         cam.transform.rotation = Quaternion.Euler(new Vector3 (90,0,0) + player.rotation.eulerAngles);
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        Player_Move.plusWindow();
         use = true;
         kotelGUI.SetActive(true);
     }
 
     public void EscapeKotel()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        Player_Move.minusWindow();
         kotelGUI.SetActive(false);
         use = false;
     }
@@ -67,7 +65,7 @@ public class Kotel : MonoBehaviour
     {
         press.gameObject.SetActive(true);
         press.transform.rotation = player.rotation;
-        press.text = "Press E";
+        player.GetComponent<Player_Move>().hintText.text = "Использовать";
     }
 
     public void Clear()
