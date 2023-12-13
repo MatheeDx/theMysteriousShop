@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 2
   name: krapiva
-  iconGUI: {fileID: 962509667021220504, guid: 1a1f339556f051d4da1702448c711e77, type: 3}
+  itemDescription: 
   icon: {fileID: 21300000, guid: 22f7317748df6c241b961e8ea1cdd130, type: 3}
+  price: 0
   color: {r: 0, g: 0.7830189, b: 0.199593, a: 0.09803922}
+  maximumAmount: 10
+  itemPrefab: {fileID: 7740243130044620998, guid: 2e14f4ac058aabe42b9b0ec5236859bc, type: 3}

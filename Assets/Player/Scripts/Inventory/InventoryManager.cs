@@ -13,7 +13,7 @@ public class InventoryManager : MonoBehaviour
     public bool isOpened;
 
     public GameObject hat;
-    private Item1 ActiveItem;
+    private Item ActiveItem;
     static public int count = 0;
         private void Awake()
     {
@@ -50,27 +50,27 @@ public class InventoryManager : MonoBehaviour
                 UIPanel.SetActive(false);
             }
         }
-            if(Input.GetKeyDown(KeyCode.E) & ActiveItem != null){
+            /*if(Input.GetKeyDown(KeyCode.E) & ActiveItem != null){
                 AddItem(ActiveItem.item, ActiveItem.amount);
                 ActiveItem.Kill();
                 GetComponent<Player_Move>().hintText.text = "";
                 ActiveItem = null;
                 count++;
-            }
+            }*/
     }
     private void OnTriggerEnter(Collider collision){
-        if(collision.TryGetComponent(out Item1 item)){
+        if(collision.TryGetComponent(out Item item)){
             ActiveItem = item;
             GetComponent<Player_Move>().hintText.text = "Е - поднять";
         } 
     }
     private void OnTriggerExit(Collider collision){
-        if(collision.TryGetComponent(out Item1 item)){
+        if(collision.TryGetComponent(out Item item)){
             ActiveItem = null;
             GetComponent<Player_Move>().hintText.text = "";
         } 
     }
-    private void AddItem(ItemScriptableObject _item, int _amount){
+    public void AddItem(Item _item, int _amount){
         foreach(InventorySlot slot in slots){
             if(slot.item == _item){
                 if(slot.amount + _amount <= _item.maximumAmount){
@@ -78,7 +78,7 @@ public class InventoryManager : MonoBehaviour
                     slot.itemAmountText.text = slot.amount.ToString();
                     return;
                 }
-                break;
+                //break;
             }
         }
         foreach(InventorySlot slot in slots){
@@ -91,5 +91,6 @@ public class InventoryManager : MonoBehaviour
                 break;
             }
         }
+        count++;
     }
 }

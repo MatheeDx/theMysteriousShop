@@ -19,24 +19,34 @@ public class Interactive : MonoBehaviour
     {
         if(Physics.SphereCast(transform.position, 1.5f, transform.forward, out hit, 3f))
         {
+            if (hit.transform.gameObject.tag == "trash")
+            {
+                Item1 target = hit.transform.GetComponent<Item1>();
+                if (Input.GetButtonDown("Use"))
+                {
+                    GetComponent<InventoryManager>().AddItem(target.item, target.amount);
+                    target.Kill();
+                }
+            }
             if (hit.transform.gameObject.tag == "Yagoda")
             {
                 Yagodi target = hit.transform.parent.GetComponent<Yagodi>();
                 target.YagodaInfo(transform, inv.CountCheck());
-                if (Input.GetButtonDown("Use") & target.YagodCheck() & inv.CountCheck())
+                if (Input.GetButtonDown("Use") & target.YagodCheck())
                 {
                     target.YagodaMinus();
-                    inv.AddItem(target.itemToAdd);
+                    GetComponent<InventoryManager>().AddItem(target.itemToAdd, 1);
+
                 }
             }
             if (hit.transform.gameObject.tag == "Krapiva")
             {
-                Krapiva target = hit.transform.parent.GetComponent<Krapiva>();
+                Krapiva target = hit.transform.GetComponent<Krapiva>();
                 target.KrapivaInfo(transform, inv.CountCheck());
-                if (Input.GetButtonDown("Use") & target.KrapivCheck() & inv.CountCheck())
+                if (Input.GetButtonDown("Use") & target.KrapivCheck())
                 {
                     target.KrapivaMinus();
-                    inv.AddItem(target.itemToAdd);
+                    GetComponent<InventoryManager>().AddItem(target.itemToAdd, 1);
                 }
             }
             if (hit.transform.gameObject.tag == "Vedma")

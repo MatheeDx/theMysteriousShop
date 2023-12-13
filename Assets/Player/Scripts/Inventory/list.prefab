@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 7470266510423586359}
   m_Layer: 0
   m_Name: list
-  m_TagString: Untagged
+  m_TagString: trash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -127,5 +127,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bf392cc900e30f48b825a1dae753b91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: a30ae4cc748205e4aa94fca1154fbfac, type: 2}
+  item: {fileID: 11400000, guid: 5341f2136a392f34d97f9284a95f4630, type: 2}
   amount: 1

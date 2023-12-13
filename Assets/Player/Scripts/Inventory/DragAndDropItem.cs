@@ -79,7 +79,7 @@ public class DragAndDropItem : MonoBehaviour, IPointerDownHandler, IPointerUpHan
     void ExchangeSlotData(InventorySlot newSlot)
     {
 
-        ItemScriptableObject item = newSlot.item;
+        Item item = newSlot.item;
         int amount = newSlot.amount;
         bool isEmpty = newSlot.isEmpty;
         GameObject iconGO = newSlot.iconGO;

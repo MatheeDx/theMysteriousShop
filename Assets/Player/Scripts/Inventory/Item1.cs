@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Item1 : MonoBehaviour
 {
-    public ItemScriptableObject item;
+    public Item item;
     public int amount;
     public void Kill(){
         Destroy(gameObject);
