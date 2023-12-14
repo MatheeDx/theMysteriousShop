@@ -22,6 +22,7 @@ public class InventoryManager : MonoBehaviour
         private void Awake()
     {
         UIPanel.SetActive(true);
+        KotelGUI.SetActive(true);
     }
     void Start()
     {
@@ -42,7 +43,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
 
-            UIPanel.SetActive(false);
+        UIPanel.SetActive(false);
         KotelGUI.SetActive(false);
 
         hat = transform.GetChild(2).gameObject;
@@ -94,9 +95,7 @@ public class InventoryManager : MonoBehaviour
             if(slot.item == _item){
                 if(slot.amount + _amount <= _item.maximumAmount)
                 {
-                    Debug.Log(slot.amount + " " + _amount);
                     slot.amount += _amount;
-                    
                     slot.itemAmountText.text = slot.amount.ToString();
                     break;
                 }
@@ -109,7 +108,6 @@ public class InventoryManager : MonoBehaviour
             {
                 if (slot.amount + _amount <= _item.maximumAmount)
                 {
-                    Debug.Log(slot.amount + " " + _amount);
                     slot.amount += _amount;
                     slot.itemAmountText.text = slot.amount.ToString();
                     return;
